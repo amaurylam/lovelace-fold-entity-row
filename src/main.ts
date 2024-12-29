@@ -45,8 +45,11 @@ class FoldEntityRow extends LitElement {
 
   setConfig(config: FoldEntityRowConfig) {
     this._config = config = Object.assign({}, DEFAULT_CONFIG, config);
-    this.open = this.open ?? this._config.open ?? false;
-
+    if (hasTemplate(this._config.open)) {
+      this.open = this.open ?? parseTemplate(this._config.open) ?? false;
+    } else {
+      this.open = this.open ?? this._config.open ?? false;
+    }
     this._finishSetup();
   }
 
