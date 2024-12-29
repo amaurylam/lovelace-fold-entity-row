@@ -1,7 +1,7 @@
 import { LitElement, html, css } from "lit";
 import { property } from "lit/decorators.js";
 import pjson from "../package.json";
-import { selectTree } from "card-tools/src/helpers";
+import { selectTree, hasTemplate, parseTemplate } from "card-tools/src/helpers";
 import { findParentCard, actionHandlerBind, actionHandler } from "./helpers.js";
 
 interface LovelaceElement extends HTMLElement {
